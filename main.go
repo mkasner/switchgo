@@ -18,7 +18,7 @@ func main() {
 
 	flag.StringVar(&goroot, "goroot", "go", "goroot")
 	flag.StringVar(&path, "path", "/usr/local", "path")
-	flag.StringVar(&new, "new", "go-1.6.2", "new go")
+	flag.StringVar(&new, "new", "go-1.7", "new go")
 
 	flag.Parse()
 	version, err := ioutil.ReadFile(filepath.Join(path, new, "VERSION"))
@@ -29,7 +29,7 @@ func main() {
 	// delete old goroot
 	err = os.Remove(filepath.Join(path, goroot))
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Couldn't delete old go: ", err)
 	}
 	err = os.Symlink(filepath.Join(path, new), filepath.Join(path, goroot))
 	if err != nil {
