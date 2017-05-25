@@ -18,7 +18,7 @@ func main() {
 
 	flag.StringVar(&goroot, "goroot", "go", "goroot")
 	flag.StringVar(&path, "path", "/usr/local", "path")
-	flag.StringVar(&new, "new", "go-1.8", "new go")
+	flag.StringVar(&new, "new", "go-1.8.3", "new go")
 
 	flag.Parse()
 	version, err := ioutil.ReadFile(filepath.Join(path, new, "VERSION"))
